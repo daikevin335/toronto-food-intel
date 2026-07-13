@@ -4,7 +4,9 @@ from pathlib import Path
 
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 
-query = """
+# --- Restaurant Query ---
+
+restaurant_query = """
 [out:json];
 
 (
@@ -16,14 +18,26 @@ query = """
 out center;
 """
 
+# --- Subway Station Query --- 
+
+subway_query = """
+[out:json];
+(
+    node["station"="subway"](43.60,-79.70,43.90,-79.10);
+);
+out center;
+"""
+
 headers = {
-    "User-Agent": "hidden-toronto-project (kevin.dai@student)",
-    "Accept": "application/json"
+    "User-Agent": "toronto-food-intel (kevin.dai@student)"
 }
 
+# --- Pull Restaurants  ---
+
+print("Fetching restaurant...")
 response = requests.get(
     OVERPASS_URL,
-    params={"data": query},
+    params={"data": restaurant_query},
     headers=headers
 )
 
@@ -42,3 +56,24 @@ with open(output_path, "w") as f:
     json.dump(data, f, indent=2)
 
 print("Done. Data saved to data/raw/restaurants.json")
+
+# --- Pull Subway Stations ---
+
+print("\nFetching subway stations...")
+response = requests.post(
+    OVERPASS_URL,
+    data={"data": subway_query},
+    headers=headers
+)
+
+if response.status_code != 200:
+    print("ERROR:", response.status_code)
+    exit()
+
+data = response.json()
+print(f"Subway Station count: {len(data['elements'])}")
+
+output_path = Path("data/raw/subway_stations.json")
+with open(output_path, "w") as f:
+    json.dump(data, f, indent = 2)
+print("Saved to data/raw/subway_stations.json")
