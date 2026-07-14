@@ -14,6 +14,7 @@ This project was my way of combining a passion for food with hands-on practice i
 - **The downtown core is the densest food corridor** — St. Andrew station has 459 restaurants within ~500m, followed closely by Osgoode (445) and Queen (430)
 - **Yonge Street leads by street** — 410 restaurants along its length, nearly double Bloor Street West (360)
 - **Data completeness varies widely** — 98% of records have a name, but only 23% have a phone number, reflecting the volunteer-edited nature of OpenStreetMap
+- - **Restaurant density mirrors the subway network** — an interactive map of 10,200+ establishments reveals clear clustering along TTC lines, with the downtown core visibly denser than any other area of the city
 
 ## Data Schema
 
@@ -142,4 +143,5 @@ jupyter notebook notebooks/exploration.ipynb
 
 - **Proximity analysis uses a bounding box approximation** rather than true Haversine distance — good enough for exploration but not production-grade
 - **OpenStreetMap data is volunteer-edited** — completeness varies significantly by field and location
-- **Planned:** neighbourhood-level analysis, interactive map visualization, and Haversine-based distance calculations
+- **Planned:** neighbourhood-level analysis and Haversine-based distance calculations
+- **Completed:** interactive map visualization using folium (`notebooks/toronto_food_map.html`)
