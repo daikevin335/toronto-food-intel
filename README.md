@@ -4,7 +4,7 @@ A personal data engineering project exploring Toronto's restaurant landscape —
 
 ## Why I Built This
 
-I've spent time working in the restaurant industry — from line cooking to front-of-house — and I've always been curious about the data side of food culture. Toronto is one of the most culinarily diverse cities in the world, and I wanted to use real data engineering tools to explore what that actually looks like on a map, by neighbourhood, and near transit.
+I've spent time working in the restaurant industry — from line cooking to front-of-house — and I've always been curious about the data side of food culture. Toronto is one of the most culinarily diverse cities in the world, and I wanted to use real data engineering tools to explore what that actually looks like on a map, by districts, and near transit.
 
 This project was my way of combining a passion for food with hands-on practice in data extraction, SQL, and exploratory analysis.
 
